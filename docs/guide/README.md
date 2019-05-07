@@ -21,46 +21,36 @@ npm install -g mevn-cli
 ## Quickstart
 ```bash
 npm install -g mevn-cli
-mevn init "Desired File Name" 
+mevn init "appname"
 ```
 ### Initial Command
 
-This command Initialises the project.
+This command bootstraps a basic MEVN stack based template to work upon.
 
 ```
-mevn init appname
+mevn init <appname>
 ```
 
-### Server Commands
 
-These commands are used to generate the code necessary for running a server.
+### Available Commands
 
-| command | description |
-| ------- | ----------- |
-|``` mevn create:route ``` | To create the Routes-File(API) |
-|``` mevn create:model ``` | To create the Models-File(SCHEMA) |
-|``` mevn create:controller``` |  To create the Controllers-File |
-| ```mevn create:config ``` | To create the Config-File |
-
-
-### General Command
- 
- These are generic commands for the entire project.
+ `Mevn-CLI` offers the following set of commands:-
 
 | command | description |                                                                                                
 | -------------- |  ---------------- |
-| ```mevn run:server``` | To run the Server |
-| ```mevn run:client``` | To run the Client |
+| ```mevn serve``` | To launch Client/Server parts as required |
 | ```mevn add:package``` | To add additional packages as required |
-| ```mevn create:component <component_name>``` | To create new components as required |
+| ```mevn generate``` | To generate component, model, route, controller, and DB config files |
+| ```mevn codesplit <component_name>``` | Lazy load components as required |
 | ```mevn dockerize``` | To run the client and server in separate docker containers |
+| ```mevn deploy``` | To deploy the app to Heroku |
 
 ## File Hierarchy
 ```
 | - .github
     | -config.yml
 | - bin
-    | - index.js
+    | - mevn.js
 | - docs
     | - .vuepress
         | - public
@@ -71,34 +61,34 @@ These commands are used to generate the code necessary for running a server.
     | - guide      
         | - README.md
     | - README.md
-| - lib 
+| - src
     | - commands
         | - basic
             | - codesplit.js
             | - component.js
-            | - createConfig.js
-            | - createController.js
-            | - createModel.js
-            | - createRoute.js
+            | - docker.js
+            | - routes.js
+            | - generate.js
             | - init.js
             | - package.js
             | - version.js
         | - deploy
-            | - docker.js
-            | - gitRepo.js
             | - herokuDeploy.js
         | - serve
-            | - client.js
             | - launch.js
+<<<<<<< HEAD
             | - server.js
         | - configure 
             | - configureCommand.js
             | - webpack4.js   
+||||||| merged common ancestors
+            | - server.js
+=======
+            | - setup.js
+>>>>>>> upstream/master
     | - external
         | - banner.js
     | - templates
-        | - components
-                | - component.vue
         | - controllers
             | - user_controller.js
         | - models
@@ -114,22 +104,24 @@ These commands are used to generate the code necessary for running a server.
             | - store.js
     | - utils
         | - createFile.js
+        | - defer.js
         | - fileOverwritePrompt.js
         | - messages.js
         | - projectConfig.js
+        | - spinner.js
+        | - validate.js
 | - test
     | - main_test.js
 | - .gitignore
-| - .jshintignore
-| - .jshintrc
+| - .babelrc
+| - .eslintrc
 | - .travis.yml
 | - CHANGELOG.MD
 | - CODE_OF_CONDUCT.md
 | - LICENSE.md
 | - README.md
-| - config.json
 | - package-lock.json
-| - package.json 
+| - package.json
 ```
 
 ## Features
@@ -137,12 +129,12 @@ These commands are used to generate the code necessary for running a server.
 - This tool provides an easy way to build a web app by providing a super simple boilerplate project and a reliable boilerplate pwa to build upon.  
 - Its written in ES6 syntax, which is a developer-friendly syntax that keeps the code simpler and smaller.
 - The whole project is done in modules(thanks to ES6 syntax) which enhances user readability and much more compact code.  
-- Mevn-Cli will automate the files and generate the codes necessary to start and run a server, API etc
+- `Mevn-CLI` will automate the files and generate the codes necessary to start and run a server, API etc
 
 
 ## Contributing
 
-Before contributing to this repository, please first discuss the change you wish to make via issue, or any other method with the owners of this repository before making a change. 
+Before contributing to this repository, please first discuss the change you wish to make via issue, or any other method with the owners of this repository before making a change.
 
 ### How do I contribute?
 1. Ensure you have no "dummy" files left, if you do simply add them to the bottom of the `.gitignore`.
@@ -165,5 +157,5 @@ Nothing! You are done and ready to get coding!
 
 | command | description
 | --- | --- |
-| ```mevn -v``` | Check CLI version |
+| ```mevn version``` | Check CLI version |
 |``` mevn --help ``` | Get help and check usage |
